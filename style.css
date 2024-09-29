@@ -21,6 +21,10 @@ h1 {
 .tree {
     display: flex;
     justify-content: center;
+    flex-direction: column; /* Permite que os itens fluam verticalmente em telas menores */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    width: 100%; /* Garante que a árvore ocupe 100% da largura disponível */
+    overflow-x: auto; /* Permite rolagem horizontal caso necessário */
 }
 
 .tree ul {
@@ -28,16 +32,17 @@ h1 {
     position: relative;
     transition: all 0.5s;
     font-size: 0.8em;
+    width: max-content; /* Ajusta o conteúdo para a largura necessária sem cortar */
 }
 
 .tree li {
-    float: left;
     text-align: center;
     list-style-type: none;
     position: relative;
     padding: 10px 2px 0 2px;
     transition: all 0.5s;
-    cursor: pointer; /* Adiciona cursor de "clique" */
+    cursor: pointer;
+    white-space: nowrap; /* Impede que o texto seja quebrado */
 }
 
 .tree li ul {
@@ -106,10 +111,16 @@ h1 {
         font-size: 24px;
         margin-bottom: 30px;
     }
+    .tree {
+        flex-direction: column; /* Exibe a árvore verticalmente em telas menores */
+        align-items: center;
+    }
     .tree ul {
         font-size: 1em;
+        padding: 0;
     }
     .tree li {
+        display: block; /* Remove o float para que o conteúdo flua naturalmente */
         padding: 5px;
     }
     .tree li a {
