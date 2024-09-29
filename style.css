@@ -12,6 +12,10 @@ body {
     padding: 0;
 }
 
+.container {
+    margin: 100px;
+}
+
 h1 {
     font-family: Cambria, Georgia, serif;
     color: #ffffff; /* Mantido branco para melhor legibilidade */
@@ -26,8 +30,7 @@ h1 {
     align-items: center; 
     width: 100%; 
     overflow-x: auto; 
-    max-height: 80vh; /* Limitar a altura máxima da árvore */
-    overflow-y: auto; /* Permitir rolagem vertical */
+    max-width: 100%;  /* Permitir rolagem vertical */
 }
 
 .tree ul {
@@ -35,7 +38,11 @@ h1 {
     position: relative;
     transition: all 0.5s;
     font-size: 0.8em;
-    width: max-content; /* Mantido max-content para melhor ajuste */
+    width: auto; /* Permitir que a largura se ajuste ao conteúdo */
+    margin: 0; /* Remover margens da lista */
+    display: flex; /* Mudar para flex para alinhar horizontalmente */
+    flex-wrap: wrap; /* Permitir que itens quebrem para a próxima linha, se necessário */
+    justify-content: center; /* Centralizar os itens */
 }
 
 .tree li {
@@ -45,49 +52,30 @@ h1 {
     padding: 10px 2px 0 2px;
     transition: all 0.5s;
     cursor: pointer;
-    white-space: nowrap;
+    white-space: nowrap; /* Permitir quebra de linha */
+    width: auto; /* Permitir que a largura se ajuste ao conteúdo */
 }
 
 .tree li ul {
     display: none; /* Esconder filhos inicialmente */
-}
-
-.tree li::before,
-.tree li::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 50%;
-    border-top: 1px solid #ccc;
-    width: 50%;
-    height: 10px;
-}
-
-.tree li::after {
-    right: auto;
-    left: 50%;
-    border-left: 1px solid #ccc;
-}
-
-.tree li:only-child::after,
-.tree li:only-child::before {
-    display: none;
-}
-
-.tree li:only-child {
-    padding-top: 0;
+    padding: 0; /* Remover padding dos filhos */
+    margin: 0; /* Remover margens dos filhos */
+    display: flex; /* Manter os filhos sempre na horizontal */
+    flex-direction: row; /* Forçar exibição na horizontal */
 }
 
 .tree li a {
     border: 1px solid #ccc;
-    padding: 5px 10px;
+    padding: 10px 15px; /* Aumentado o padding para mais espaço */
     text-decoration: none;
     color: #050505c2; /* Texto mais escuro */
     background-color: #fafcf5;
-    display: inline-block;
+    display: inline-block; /* Permitir que o texto ocupe o espaço corretamente */
     border-radius: 5px;
     transition: all 0.5s;
-    font-size: 14px;
+    font-size: 14px; /* Aumentado para um tamanho mais legível */
+    white-space: nowrap; /* Permitir que o texto quebre em várias linhas */
+    min-width: 80px; /* Definir uma largura mínima para os links */
 }
 
 .tree li a:hover {
@@ -95,44 +83,23 @@ h1 {
     color: #94c0d6;
 }
 
-.tree li ul::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    border-left: 1px solid #ccc;
-    width: 0;
-    height: 10px;
-}
-
 /* Estilo específico para os filhos de Jovita */
 .tree li a:hover + ul {
-    display: flex; /* Exibe os filhos ao passar o mouse */
+    display: flex; 
     justify-content: center;
     padding: 0;
-}
-
-.horizontal {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-}
-
-.horizontal li {
-    display: inline-block; /* Exibir os filhos na horizontal */
-    float: none; /* Remover flutuação */
-    padding: 10px;
+    flex-direction: row; /* Mantenha na horizontal ao clicar */
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     body {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     h1 {
         font-size: 24px;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
 
     .tree {
@@ -167,9 +134,4 @@ h1 {
     color: white;
     text-align: center;
     padding: 3px 0;
-}
-
-/* Adicionando uma classe de hover para a árvore */
-.tree li:hover > ul {
-    display: block; /* Exibir filhos ao passar o mouse */
 }
