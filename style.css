@@ -89,3 +89,20 @@ h1 {
     width: 0;
     height: 10px; /* Reduzido */
 }
+.footer {
+    font-family: "Great Vibes", cursive;
+    font-size: 20px;
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 3px 0;
+}
+.great-vibes-regular {
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
