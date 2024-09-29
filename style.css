@@ -1,7 +1,7 @@
 body {
     font-family: monospace;
     background-color: #000000;
-    color: #000000;
+    color: #FFFFFF; /* Mantido branco para melhor legibilidade */
     background-image: url("img/tecnology.jpg");
     background-size: cover;
     background-position: center;
@@ -14,17 +14,20 @@ body {
 
 h1 {
     font-family: Cambria, Georgia, serif;
-    color: #000000;
+    color: #ffffff; /* Mantido branco para melhor legibilidade */
     margin-bottom: 50px;
+    margin-left: 50px;
 }
 
 .tree {
     display: flex;
     justify-content: center;
-    flex-direction: column; /* Permite que os itens fluam verticalmente em telas menores */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    width: 100%; /* Garante que a árvore ocupe 100% da largura disponível */
-    overflow-x: auto; /* Permite rolagem horizontal caso necessário */
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    overflow-x: auto; 
+    max-height: 80vh; /* Limitar a altura máxima da árvore */
+    overflow-y: auto; /* Permitir rolagem vertical */
 }
 
 .tree ul {
@@ -32,7 +35,7 @@ h1 {
     position: relative;
     transition: all 0.5s;
     font-size: 0.8em;
-    width: max-content; /* Ajusta o conteúdo para a largura necessária sem cortar */
+    width: max-content; /* Mantido max-content para melhor ajuste */
 }
 
 .tree li {
@@ -42,11 +45,11 @@ h1 {
     padding: 10px 2px 0 2px;
     transition: all 0.5s;
     cursor: pointer;
-    white-space: nowrap; /* Impede que o texto seja quebrado */
+    white-space: nowrap;
 }
 
 .tree li ul {
-    display: none; /* Inicialmente, esconde os filhos */
+    display: none; /* Esconder filhos inicialmente */
 }
 
 .tree li::before,
@@ -79,7 +82,7 @@ h1 {
     border: 1px solid #ccc;
     padding: 5px 10px;
     text-decoration: none;
-    color: #050505c2;
+    color: #050505c2; /* Texto mais escuro */
     background-color: #fafcf5;
     display: inline-block;
     border-radius: 5px;
@@ -102,27 +105,51 @@ h1 {
     height: 10px;
 }
 
+/* Estilo específico para os filhos de Jovita */
+.tree li a:hover + ul {
+    display: flex; /* Exibe os filhos ao passar o mouse */
+    justify-content: center;
+    padding: 0;
+}
+
+.horizontal {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.horizontal li {
+    display: inline-block; /* Exibir os filhos na horizontal */
+    float: none; /* Remover flutuação */
+    padding: 10px;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     body {
         font-size: 16px;
     }
+
     h1 {
         font-size: 24px;
         margin-bottom: 30px;
     }
+
     .tree {
-        flex-direction: column; /* Exibe a árvore verticalmente em telas menores */
+        flex-direction: column;
         align-items: center;
     }
+
     .tree ul {
         font-size: 1em;
         padding: 0;
     }
+
     .tree li {
-        display: block; /* Remove o float para que o conteúdo flua naturalmente */
+        display: block;
         padding: 5px;
     }
+
     .tree li a {
         font-size: 12px;
         padding: 3px 6px;
@@ -133,7 +160,7 @@ h1 {
     font-family: "Great Vibes", cursive;
     font-size: 20px;
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
     left: 0;
     width: 100%;
     background-color: #000000;
@@ -142,8 +169,7 @@ h1 {
     padding: 3px 0;
 }
 
-.great-vibes-regular {
-    font-family: "Great Vibes", cursive;
-    font-weight: 400;
-    font-style: normal;
+/* Adicionando uma classe de hover para a árvore */
+.tree li:hover > ul {
+    display: block; /* Exibir filhos ao passar o mouse */
 }
