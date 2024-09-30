@@ -70,7 +70,7 @@ h1 {
     padding: 10px 15px; /* Aumentado o padding para mais espaço */
     text-decoration: none;
     color: #050505c2; /* Texto mais escuro */
-    background-color: #fafcf5;
+   
     display: inline-block; /* Permitir que o texto ocupe o espaço corretamente */
     border-radius: 5px;
     transition: all 0.5s;
@@ -138,4 +138,18 @@ h1 {
     color: white;
     text-align: center;
     padding: 3px 0;
+}
+
+.foto {
+    width: 50px; /* Tamanho inicial */
+    height: 50px;
+    transition: transform 0.3s ease; /* Efeito suave ao aumentar */
+}
+
+.foto:hover {
+    transform: scale(1.5); /* Aumenta 50% quando o mouse passa por cima */
+}
+.link-branco {
+    color: white;
+    text-decoration: none; /* Remove o sublinhado */
 }
